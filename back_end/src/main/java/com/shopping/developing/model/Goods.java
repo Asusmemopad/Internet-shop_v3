@@ -3,6 +3,7 @@ package com.shopping.developing.model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import org.springframework.hateoas.ResourceSupport;
 
 import javax.persistence.*;
@@ -10,19 +11,21 @@ import javax.persistence.*;
 @Entity
 @Data
 @NoArgsConstructor
-//@EqualsAndHashCode(callSuper = true)
 public class Goods {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, updatable = false)
+    @Id @NonNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @NonNull
     private Integer code;
 
-    @Column(nullable = false, unique = true)
-    private String name_of_goods;
+    @NonNull
+    private String name;
 
-    @Column(nullable = false)
+    @NonNull
+    private String description;
+
+    @NonNull
     private Long price;
 }
